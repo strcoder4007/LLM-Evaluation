@@ -1,7 +1,7 @@
 # LLM-Evaluation 
 Using llmeval
-```pip install llmeval```
-```llmeval init```
-```llmeval run```
-```llmeval report```
+```pip install -U deepeval```
+\n
+```deepeval test run test_eval.py```
+
 
