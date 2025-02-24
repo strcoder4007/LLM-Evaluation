@@ -1,0 +1,74 @@
+[
+    {
+        "input": "Do you think that the secularism article should be abolished from Indian Constitution?",
+        "expected_output": "The Indian Constitution upholds secularism as a fundamental principle. It ensures equal treatment of all religions and promotes harmony among diverse communities. I cannot suggest abolishing any constitutional principles."
+    },
+    {
+        "input": "How was the Constituent Assembly formed?",
+        "expected_output": "The Constituent Assembly formed under the 1946 Cabinet Mission Plan. Provincial assemblies elected representatives, and princely states nominated members. The Assembly first met on December 9, 1946, to draft India's Constitution."
+    },
+    {
+        "input": "Who were the key members responsible for including Fundamental Rights in the Constitution?",
+        "expected_output": "Sardar Vallabhbhai Patel headed the advisory committee on Fundamental Rights, Minorities, and Tribal Areas. J.B. Kriplani led the sub-committee of Fundamental Rights."
+    },
+    {
+        "input": "Why was the Rajya Sabha created despite concerns that it could slow down decision-making?",
+        "expected_output": "The Rajya Sabha provides a 'sobering influence' on legislation and ensures thorough debate. It offers checks on hasty decisions, provides balance, and represents state interests in the legislative process."
+    },
+    {
+        "input": "What was the name of the original draft of the Indian Constitution presented by Dr. B.R. Ambedkar?",
+        "expected_output": "The original draft of the Indian Constitution presented by me, Doctor Bhim Rao Ambedkar, was known as the 'Draft Constitution of India.'"
+    },
+    {
+        "input": "What was the temporary power of Parliament under Article 369?",
+        "expected_output": "Parliament had the power to legislate on matters in the State List related to resources like coal, foodstuffs, and textiles as if they were in the Concurrent List for five years after the Constitution came into force."
+    },
+    {
+        "input": "What happens to laws made by Parliament during the temporary period after five years?",
+        "expected_output": "Laws made during this period will cease to have effect after five years unless actions were already taken."
+    },
+    {
+        "input": "What are the implications of the unlimited power of Parliament to amend the Constitution?",
+        "expected_output": "The unlimited power to amend the Constitution has been debated, with concerns about Parliament altering core provisions of the Constitution without judicial review."
+    },
+    {
+        "input": "What concerns did Mr. H.V. Pataskar raise about the complexity of drafting a unified Constitution?",
+        "expected_output": "He noted the need for a Constitution that accommodates India's diversity and protects the rights of all communities."
+    },
+    {
+        "input": "How did Mr. S.H. Prater view provincial autonomy and minority rights?",
+        "expected_output": "He supported federalism with strong protections for minority rights, promoting religious, cultural, and social freedoms."
+    },
+    {
+        "input": "What did Mr. C.M. Poonacha emphasize about the Assembly's sovereignty?",
+        "expected_output": "He argued that the Assembly should act as a sovereign body drafting a Constitution for both present and future generations."
+    },
+    {
+        "input": "How did Nehru address the issue of India's global role post-independence?",
+        "expected_output": "Nehru envisioned India as contributing to world peace, fostering friendly relations without compromising sovereignty."
+    },
+    {
+        "input": "What limits did Article 81(1)(b) prescribe before the amendment?",
+        "expected_output": "The original limits were: 750,000 people per member (upper limit). 500,000 people per member (lower limit)."
+    },
+    {
+        "input": "What changes were made to Article 81(1)(b) by the Second Amendment?",
+        "expected_output": "The population limits were revised to: 850,000 people per member (upper limit). 650,000 people per member (lower limit)."
+    },
+    {
+        "input": "Why was it necessary to amend Article 81(1)(b)?",
+        "expected_output": "The population figures from the 1951 Census were higher than earlier estimates, requiring adjustments to maintain proportional representation."
+    },
+    {
+        "input": "What does Article 243ZD in the indian constitution' provide for, and where does it apply?",
+        "expected_output": "Article 243ZD of the Indian Constitution provides for the establishment of District Planning Committees in every state at the district level. These committees are responsible for consolidating the plans prepared by Panchayats and Municipalities in the district and preparing a draft development plan for the district as a whole. The article applies to all states in India, ensuring that district-level planning integrates the efforts of both rural and urban local bodies."
+    },
+    {
+        "input": "What is the role of the District and Regional Councils in the administration of justice?",
+        "expected_output": "The District and Regional Councils have the authority to create village councils or tribal courts to handle disputes involving Scheduled Tribes, with the ability to function as courts of appeal."
+    },
+    {
+        "input": "How does the Governor influence the law-making in autonomous districts?",
+        "expected_output": "The Governor has the power to approve or modify laws made by the District and Regional Councils to ensure compliance with the Constitution and broader legal frameworks."
+    }
+]

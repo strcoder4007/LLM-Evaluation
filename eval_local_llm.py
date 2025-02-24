@@ -1,13 +1,15 @@
 from deepeval import assert_test
 from deepeval.test_case import LLMTestCase, LLMTestCaseParams
-from deepeval.metrics import GEval
 from dotenv import load_dotenv
 import requests
 import json
 from typing import List, Dict
+import os
 
 load_dotenv()
 
+# Configure endpoints
+LLM_ENDPOINT = "http://localhost:8000/v1/completions"
 RAG_ENDPOINT = "http://localhost:5009/ambedkar"
 
 def create_test_cases() -> List[Dict]:
@@ -15,7 +17,59 @@ def create_test_cases() -> List[Dict]:
         test_cases = json.load(file)
     return test_cases
 
-correctness_metric = GEval(
+class LocalGEval:
+    def __init__(self, name: str, criteria: str, threshold: float = 0.5):
+        self.name = name
+        self.criteria = criteria
+        self.threshold = threshold
+        self.score = None
+    
+    def measure(self, test_case: LLMTestCase) -> None:
+        prompt = f"""
+        You are an evaluation model. Rate the following response based on the given criteria.
+        
+        Criteria:
+        {self.criteria}
+        
+        Actual Output:
+        {test_case.actual_output}
+        
+        Expected Output:
+        {test_case.expected_output}
+        
+        Return ONLY a decimal number between 0 and 1, representing the final score.
+        """
+        
+        try:
+            response = requests.post(
+                LLM_ENDPOINT,
+                json={
+                    "prompt": prompt,
+                    "max_tokens": 512,
+                    "temperature": 0.1,
+                    "top_p": 0.95,
+                    "stop": ["\n"]
+                },
+                headers={"Content-Type": "application/json"}
+            )
+            response.raise_for_status()
+            
+            result = response.json()
+            output = result['choices'][0]['text'].strip()
+            
+            try:
+                self.score = float(output)
+                self.score = min(max(self.score, 0.0), 1.0)  # Ensure score is between 0 and 1
+            except ValueError:
+                print(f"Error parsing score: {output}")
+                self.score = 0.0
+                
+        except Exception as e:
+            print(f"Error calling LLM endpoint: {str(e)}")
+            self.score = 0.0
+
+# Replace the original GEval with our local version
+correctness_metric = LocalGEval(
     name="Correctness",
     criteria="""
     You are evaluating responses about the Indian Constitution and Dr. Ambedkar's work. Compare the actual output with the expected output and score based on:
@@ -46,15 +100,7 @@ correctness_metric = GEval(
     - Give 0.0 if format completely wrong
 
     Calculate final score by adding all components (max 1.0).
-
-    Example scoring:
-    Perfect match = 0.4 + 0.3 + 0.15 + 0.15 = 1.0
-    Good match with minor issues = 0.3 + 0.2 + 0.1 + 0.1 = 0.7
-    Poor match = 0.1 + 0.1 + 0.05 + 0.05 = 0.3
-
-    Return ONLY a decimal number between 0 and 1, representing the final score.
     """,
-    evaluation_params=[LLMTestCaseParams.ACTUAL_OUTPUT, LLMTestCaseParams.EXPECTED_OUTPUT],
     threshold=0.5
 )
 
