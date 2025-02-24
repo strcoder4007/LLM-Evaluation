@@ -9,7 +9,7 @@ import os
 load_dotenv()
 
 # Configure endpoints
-LLM_ENDPOINT = "http://localhost:8000/v1/completions"
+LLM_ENDPOINT = "http://localhost:8080/v1/completions"
 RAG_ENDPOINT = "http://localhost:5009/ambedkar"
 
 def create_test_cases() -> List[Dict]:
@@ -59,7 +59,7 @@ class LocalGEval:
             
             try:
                 self.score = float(output)
-                self.score = min(max(self.score, 0.0), 1.0)  # Ensure score is between 0 and 1
+                self.score = min(max(self.score, 0.0), 1.0)
             except ValueError:
                 print(f"Error parsing score: {output}")
                 self.score = 0.0
