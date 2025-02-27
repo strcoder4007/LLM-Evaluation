@@ -266,7 +266,7 @@ async def text_querytest():
 
         chat_history = memory.load_memory_variables({})["chat_history"]
 
-        print('[CHAT HISTORY]', chat_history)
+        # print('[CHAT HISTORY]', chat_history)
         
         if isinstance(chat_history, str):
             chat_history = []
