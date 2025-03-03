@@ -1,0 +1,9 @@
+flask
+dotenv
+flask-cors
+langchain
+deepeval
+langchain-openai
+langchain_chroma
+langchain_community
+langchain_huggingface
